@@ -1,24 +1,24 @@
 package br.edu.ifba.inf011.aval2.models;
 
-public class Maquinas extends Equipamento{
+public class Maquina extends Equipamento{
 	private String descricao;
 	private String marca;
 	
-	public Maquinas() {
+	public Maquina() {
 		super();
 	}
 	
-	public Maquinas(Maquinas maquinas) {
-		super(maquinas);
-		this.setDescricao(maquinas.getDescricao());
-		this.setMarca(maquinas.getMarca());
+	public Maquina(Maquina maquina) {
+		super(maquina);
+		this.setDescricao(maquina.getDescricao());
+		this.setMarca(maquina.getMarca());
 	}
 	
-	public Maquinas(String identificador, int quantidade) {
+	public Maquina(String identificador, int quantidade) {
 		this(identificador, quantidade, null, null);
 	}
 	
-	public Maquinas(String identificador, int quantidade, String descricao, String marca) {
+	public Maquina(String identificador, int quantidade, String descricao, String marca) {
 		super(identificador, quantidade);
 		this.setDescricao(descricao);
 		this.setMarca(marca);
@@ -41,7 +41,7 @@ public class Maquinas extends Equipamento{
 	}
 	
 	public String toString() {
-		return "Máquina - " + super.toString()  
+		return "MÃ¡quina - " + super.toString()  
 		+ (this.getDescricao() != null ? " - " + this.getDescricao() : "")   
 		+ (this.getMarca() != null ? " - " + this.getMarca() : "");
 	}
