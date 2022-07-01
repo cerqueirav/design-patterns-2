@@ -1,4 +1,4 @@
-package br.edu.ifba.inf011.aval2.models;
+package br.edu.ifba.inf011.aval2.enums;
 
 public enum TipoExercicio {
 	Resistido,

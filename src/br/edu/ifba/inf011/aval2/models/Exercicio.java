@@ -3,12 +3,17 @@ package br.edu.ifba.inf011.aval2.models;
 import java.util.LinkedList;
 import java.util.List;
 
+import br.edu.ifba.inf011.aval2.enums.GrupoMuscular;
+import br.edu.ifba.inf011.aval2.enums.StatusExercicio;
+import br.edu.ifba.inf011.aval2.enums.TipoExercicio;
+
 public class Exercicio{
 	private String id;
 	private String descricao;
 	private List<TipoExercicio> tipos;
 	private List<GrupoMuscular> gruposMusculares;
 	private List<Equipamento> equipamentos;
+	private StatusExercicio statusExercicio;
 	
 	public Exercicio(Exercicio exercicio) {
 		this.setId(exercicio.getId());
@@ -16,6 +21,7 @@ public class Exercicio{
 		this.tipos = new LinkedList<TipoExercicio>(exercicio.tipos);
 		this.gruposMusculares = new LinkedList<GrupoMuscular>(exercicio.gruposMusculares);
 		this.equipamentos = exercicio.equipamentos = new LinkedList<Equipamento>(exercicio.equipamentos);
+		this.statusExercicio = exercicio.getStatus();
 	}
 	
 	public Exercicio(String descricao) {
@@ -24,14 +30,16 @@ public class Exercicio{
 		this.tipos = new LinkedList<TipoExercicio>();
 		this.gruposMusculares = new LinkedList<GrupoMuscular>();
 		this.equipamentos = new LinkedList<Equipamento>();
+		this.statusExercicio = StatusExercicio.Pendente;
 	}
 	
-	public Exercicio(String id, String descricao, List<TipoExercicio> tipos, List<GrupoMuscular> grupos, List<Equipamento> equipamentos) {
+	public Exercicio(String id, String descricao, List<TipoExercicio> tipos, List<GrupoMuscular> grupos, List<Equipamento> equipamentos, StatusExercicio statusExercicio) {
 		this.setId(id);
 		this.setDescricao(descricao);
 		this.tipos = new LinkedList<TipoExercicio>(tipos);	
 		this.gruposMusculares = new LinkedList<GrupoMuscular>(grupos);
 		this.equipamentos = new LinkedList<Equipamento>(equipamentos);
+		this.statusExercicio = statusExercicio;
 	}	
 	
 	public String getId() {
@@ -72,6 +80,14 @@ public class Exercicio{
 	
 	public void addEquipamento(Equipamento equipamento) {
 		this.equipamentos.add(equipamento);
+	}
+	
+	public StatusExercicio getStatus() {
+		return this.statusExercicio;
+	}
+	
+	public void setStatus(StatusExercicio statusExercicio) {
+		this.statusExercicio = statusExercicio;
 	}
 	
 	@Override
