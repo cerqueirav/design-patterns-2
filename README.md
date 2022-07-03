@@ -84,5 +84,5 @@ Esse projeto foi desenvolvido utilizando a seguinte tecnologia, e pacotes:
 - Push sua branch: `git push origin my-feature`
 
 <h4 align="center">
-	Made by <a href="https://github.com/cerqueirav" target="_blank">Victor Cerqueira </a> & <a href="https://github.com/snuknu" target="_blank">Eric Carvalho </a>
+	Made by <a href="https://github.com/cerqueirav" target="_blank">Victor Cerqueira </a> & <a href="https://github.com/George100Neres" target="_blank">George Neres </a> & <a href="https://github.com/infLucasinf" target="_blank">Lucas Fonseca </a>
 </h4>
