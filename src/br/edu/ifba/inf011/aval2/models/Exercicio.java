@@ -90,6 +90,13 @@ public class Exercicio{
 		this.statusExercicio = statusExercicio;
 	}
 	
+	public void avancar(StatusExercicio statusExercicio) {
+		if(statusExercicio.equals(StatusExercicio.Pendente)) 
+			return;
+		
+		this.statusExercicio = StatusExercicio.Concluido;
+	}
+	
 	@Override
 	public String toString() {
 		String desc = this.id + "\t" + this.descricao;

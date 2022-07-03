@@ -1,9 +1,10 @@
-package br.edu.ifba.inf011.aval2.models;
+package br.edu.ifba.inf011.aval2.state;
 import java.util.HashMap;
 import java.util.Map;
 
 import br.edu.ifba.inf011.aval2.enums.DiaDaSemana;
-import br.edu.ifba.inf011.aval2.state.SerieState;
+import br.edu.ifba.inf011.aval2.enums.StatusExercicio;
+import br.edu.ifba.inf011.aval2.models.Exercicio;
 
 public class Serie {
 	public class Status{
@@ -26,9 +27,27 @@ public class Serie {
 	private int qtde;
 	private SerieState serieState;
 	
-	
 	private Map<DiaDaSemana, Exercicio> exercicios;
 	
-	public Serie() {
+	
+	public Serie(int numRepeticoes, int qtde, SerieState serieState, Map<DiaDaSemana, Exercicio> exercicios) {
+		super();
+		this.numRepeticoes = numRepeticoes;
+		this.qtde = qtde;
+		this.serieState = serieState;
+		this.exercicios = exercicios;
+	}
+	
+	public SerieState getState() {
+		return this.serieState;
+	}
+
+
+	public void executar() {
+		
+	}
+	
+	public void avancar(DiaDaSemana diaDaSemana, StatusExercicio statusExercicio) {
+		this.serieState.avancar(this.exercicios, diaDaSemana,  statusExercicio);
 	}
 }
