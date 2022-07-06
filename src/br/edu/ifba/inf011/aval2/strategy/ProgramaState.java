@@ -66,7 +66,7 @@ public abstract class ProgramaState {
 	}
 	
 	protected Serie makeSerie(GrupoMuscular grupoMuscular, TipoExercicio tipoExercicio, int numRep, int qtd) {
-		Equipamento equipamento = new AcessorioFactory().getEquipamento("AC01", 20);
+		Equipamento equipamento1 = new AcessorioFactory().getEquipamento("AC01", 20);
 		Equipamento equipamento2 = new HalteresFactory().getEquipamento("HT02", 30);
 		Equipamento equipamento3 = new MaquinasFactory().getEquipamento("MQ03", 50);
 			
@@ -74,7 +74,7 @@ public abstract class ProgramaState {
 				ExercicioBuilder.getFactory().clear()
 				.withGrupoMuscular(grupoMuscular)
 				.withTipo(tipoExercicio)
-				.withEquipamento(equipamento)
+				.withEquipamento(equipamento1)
 				.withEquipamento(equipamento2)
 				.withEquipamento(equipamento3)
 				.build(tipoExercicio.name());
