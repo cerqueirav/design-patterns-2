@@ -25,20 +25,20 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 	ser executada. Considere que o programa comporta-se de forma diferente a depender do seu status.
 	Um programa do tipo full workout, deve retornar a próxima série na lista de séries, considerando-se
 	o conjunto completo de séries que compõem o programa, caso seja Segunda/Quarta/Sexta e
-	nenhuma série nos demais dias (repouso). 🟠
+	nenhuma série nos demais dias (repouso). 🟢
 	<li> II. Se o tipo do programa for ABCD, ele deve retornar os exercícios que trabalhem com os grupos
 	musculares: A – Segunda – Ombros / Abdominal; B – Terça - Membros Inferiores; C- Quarta -
 	Peitoral / Tríceps; D – Quinta – Costa / Bíceps, e nenhum de Sexta a Domingo.
 	Por fim, se o tipo do programa for treinamento cardio, devem ser retornados os exercícios da
-	categoria cardio às Segunda, Quarta e Sexta e nenhum nos demais dias.  🔴	
+	categoria cardio às Segunda, Quarta e Sexta e nenhum nos demais dias.  🟢	
 	<li> III. Modifique a aplicação para que ela possa permitir que o programa possa manter mecanismos de
 	notificação para todos os interessados, que o programa foi finalizado (não há mais nenhuma série
 	disponível para execução), informando a data e hora da finalização e o tipo do programa wur foi
-	executado. 🔴
+	executado. 🟢
 	<li> IV. Modifique a aplicação para que possa ser possível a criação de Exercícios combinados, que são
 	Exercícios que podem ser compostos por outros Exercícios, em uma estrutura de vários níveis de
 	profundidade (Ex: Combinado ‘Apoio-Barra’). Neste caso, a categoria e os grupos musculares dos
-	exercícios combinados é formado pela união dos exercícios que os compõem. 🔴
+	exercícios combinados é formado pela união dos exercícios que os compõem. 🟢
 	<li> V. Considere a classe Série e acrescente um método executar. O método executar atualmente imprime a
 	descrição de qual exercício precisa ser feito, o número de repetições e a quantidade de vezes. Deseja 
 	acrescentar, além disso a exibição do vídeo de execução do exercício, que inicialmente foi modelada
