@@ -26,8 +26,6 @@ public abstract class ProgramaState {
 	public boolean temProximo() {
 	    if (ehDiaDeDescanso())
 	    	return false;
-	     	
-	    //this.proxima = series.remove(diasOciosos);
 	        
 	 	return true;
 	}
