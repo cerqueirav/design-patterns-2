@@ -1,103 +1,68 @@
 package br.edu.ifba.inf011.aval2.models;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-
 import br.edu.ifba.inf011.aval2.enums.GrupoMuscular;
-import br.edu.ifba.inf011.aval2.enums.StatusExercicio;
 import br.edu.ifba.inf011.aval2.enums.TipoExercicio;
 
-public class Exercicio{
+
+public class Exercicio {
 	private String id;
-	private String descricao;
+	private String descricao;	
 	private List<TipoExercicio> tipos;
 	private List<GrupoMuscular> gruposMusculares;
 	private List<Equipamento> equipamentos;
-	private StatusExercicio statusExercicio;
-	
-	public Exercicio(Exercicio exercicio) {
-		this.setId(exercicio.getId());
-		this.setDescricao(exercicio.getDescricao());
-		this.tipos = new LinkedList<TipoExercicio>(exercicio.tipos);
-		this.gruposMusculares = new LinkedList<GrupoMuscular>(exercicio.gruposMusculares);
-		this.equipamentos = exercicio.equipamentos = new LinkedList<Equipamento>(exercicio.equipamentos);
-		this.statusExercicio = exercicio.getStatus();
+		
+	public Exercicio(String id, String descricao, List<TipoExercicio> tipos,
+					 List<GrupoMuscular> gruposMusculares, 
+					 List<Equipamento> equipamentos) {
+		this.id = id;
+		this.descricao = descricao;
+		this.tipos = new ArrayList<TipoExercicio>(tipos);
+		this.gruposMusculares = new ArrayList<GrupoMuscular>(gruposMusculares);
+		this.equipamentos = new ArrayList<Equipamento>(equipamentos);
 	}
-	
-	public Exercicio(String descricao) {
-		this.setId(null);
-		this.setDescricao(descricao);
-		this.tipos = new LinkedList<TipoExercicio>();
-		this.gruposMusculares = new LinkedList<GrupoMuscular>();
-		this.equipamentos = new LinkedList<Equipamento>();
-		this.statusExercicio = StatusExercicio.Pendente;
-	}
-	
-	public Exercicio(String id, String descricao, List<TipoExercicio> tipos, List<GrupoMuscular> grupos, List<Equipamento> equipamentos, StatusExercicio statusExercicio) {
-		this.setId(id);
-		this.setDescricao(descricao);
-		this.tipos = new LinkedList<TipoExercicio>(tipos);	
-		this.gruposMusculares = new LinkedList<GrupoMuscular>(grupos);
-		this.equipamentos = new LinkedList<Equipamento>(equipamentos);
-		this.statusExercicio = statusExercicio;
-	}	
 	
 	public String getId() {
-		return this.id;
+		return id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getDescricao() {
 		return descricao;
 	}
-	
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 	public List<TipoExercicio> getTipos() {
 		return tipos;
 	}
-	
-	public void addTipo(TipoExercicio tipo) {
-		this.tipos.add(tipo);
+
+	public void setTipos(List<TipoExercicio> tipos) {
+		this.tipos = tipos;
 	}
-	
+
 	public List<GrupoMuscular> getGruposMusculares() {
 		return gruposMusculares;
 	}
-	
-	public void addGrupoMuscular(GrupoMuscular grupoMuscular) {
-		this.gruposMusculares.add(grupoMuscular);
+
+	public void setGruposMusculares(List<GrupoMuscular> gruposMusculares) {
+		this.gruposMusculares = gruposMusculares;
 	}
-	
+
 	public List<Equipamento> getEquipamentos() {
 		return equipamentos;
 	}
-	
-	public void addEquipamento(Equipamento equipamento) {
-		this.equipamentos.add(equipamento);
+
+	public void setEquipamentos(List<Equipamento> equipamentos) {
+		this.equipamentos = equipamentos;
 	}
-	
-	public StatusExercicio getStatus() {
-		return this.statusExercicio;
-	}
-	
-	public void setStatus(StatusExercicio statusExercicio) {
-		this.statusExercicio = statusExercicio;
-	}
-	
-	public void avancar(StatusExercicio statusExercicio) {
-		if(statusExercicio.equals(StatusExercicio.Pendente)) 
-			return;
-		
-		this.statusExercicio = StatusExercicio.Concluido;
-	}
-	
-	@Override
+
 	public String toString() {
 		String desc = this.id + "\t" + this.descricao;
 		desc += "\n\t";		
@@ -115,4 +80,6 @@ public class Exercicio{
 			desc += "\n\t";
 		return desc;
 	}
+	
+	
 }
