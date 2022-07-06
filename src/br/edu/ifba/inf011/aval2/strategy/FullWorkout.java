@@ -15,10 +15,10 @@ public class FullWorkout extends ProgramaState{
 	}
 		
 	private void setSerieOfProgram(int numRep, int qtd) {
-		super.makeSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.MONDAY), TipoExercicio.Cardiovascular, numRep, qtd);
-		super.makeSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.TUESDAY), TipoExercicio.Mobilidade, numRep, qtd);
-		super.makeSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.WEDNESDAY), TipoExercicio.Funcional, numRep, qtd);
-		super.makeSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.THURSDAY), TipoExercicio.Resistido, numRep, qtd);
+		super.criarSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.MONDAY), TipoExercicio.Cardiovascular, numRep, qtd);
+		super.criarSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.TUESDAY), TipoExercicio.Mobilidade, numRep, qtd);
+		super.criarSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.WEDNESDAY), TipoExercicio.Funcional, numRep, qtd);
+		super.criarSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.THURSDAY), TipoExercicio.Resistido, numRep, qtd);
 	}
 
 }

@@ -8,12 +8,17 @@ import java.util.Stack;
 
 import br.edu.ifba.inf011.aval2.builder.ExercicioBuilder;
 import br.edu.ifba.inf011.aval2.enums.GrupoMuscular;
+import br.edu.ifba.inf011.aval2.enums.TipoEquipamento;
 import br.edu.ifba.inf011.aval2.enums.TipoExercicio;
 import br.edu.ifba.inf011.aval2.factories.AcessorioFactory;
+import br.edu.ifba.inf011.aval2.factories.EquipamentoFactory;
 import br.edu.ifba.inf011.aval2.factories.HalteresFactory;
 import br.edu.ifba.inf011.aval2.factories.MaquinasFactory;
+import br.edu.ifba.inf011.aval2.models.Acessorio;
 import br.edu.ifba.inf011.aval2.models.Equipamento;
 import br.edu.ifba.inf011.aval2.models.Exercicio;
+import br.edu.ifba.inf011.aval2.models.Haltere;
+import br.edu.ifba.inf011.aval2.models.Maquina;
 import br.edu.ifba.inf011.aval2.observer.StateConclusao;
 import br.edu.ifba.inf011.aval2.observer.Usuario;
 
@@ -24,17 +29,9 @@ public abstract class ProgramaState {
 	public Stack<Serie> series = new Stack<>();
 	
 	private List<Usuario> usuarios = new ArrayList<>(); 
-
 	
 	public ProgramaState(Programa programa) {
 		this.programa = programa;
-	}
-	
-	public boolean temProximo() {
-	    if (ehDiaDeDescanso())
-	    	return false;
-	        
-	 	return true;
 	}
 	
 	public boolean ehDiaDeDescanso() {
@@ -48,6 +45,13 @@ public abstract class ProgramaState {
 		catch(Exception e) {
 			return false;
 		}
+	}
+	
+	public boolean temProximo() {
+	    if (ehDiaDeDescanso())
+	    	return false;
+	        
+	 	return true;
 	}
 	
 	public void addUsuario(Usuario usuario) {
@@ -65,20 +69,28 @@ public abstract class ProgramaState {
 		return this.proximaSerie;
 	}
 	
-	protected Serie makeSerie(GrupoMuscular grupoMuscular, TipoExercicio tipoExercicio, int numRep, int qtd) {
-		Equipamento equipamento1 = new AcessorioFactory().getEquipamento("AC01", 20);
-		Equipamento equipamento2 = new HalteresFactory().getEquipamento("HT02", 30);
-		Equipamento equipamento3 = new MaquinasFactory().getEquipamento("MQ03", 50);
+	protected void criarSerie(GrupoMuscular grupoMuscular, TipoExercicio tipoExercicio, int numRep, int qtd) {
+		Serie serie = new Serie(numRep, qtd, criarNovoExercicio(grupoMuscular, tipoExercicio));
 			
+		series.push(serie);
+		series.push(serie);
+		series.push(serie);
+	}
+	
+	public Exercicio criarNovoExercicio(GrupoMuscular grupoMuscular, TipoExercicio tipoExercicio) {
+		Equipamento equipamento = new Acessorio("EQP01", 20);
+		Equipamento equipamento2 = new Haltere("HAL04", 40);
+		Equipamento equipamento3 = new Maquina("MAQ91", 40);
+				
 		Exercicio exercicio = 
 				ExercicioBuilder.getFactory().clear()
 				.withGrupoMuscular(grupoMuscular)
+				.withEquipamento(equipamento)
 				.withTipo(tipoExercicio)
-				.withEquipamento(equipamento1)
 				.withEquipamento(equipamento2)
 				.withEquipamento(equipamento3)
 				.build(tipoExercicio.name());
 		
-		return new Serie(numRep, qtd, exercicio);
+		return exercicio;
 	}
 }

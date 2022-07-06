@@ -4,6 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 import br.edu.ifba.inf011.aval2.enums.TipoPrograma;
+import br.edu.ifba.inf011.aval2.observer.Usuario;
 
 public class Programa {
 	private TipoPrograma tipoPrograma;
@@ -12,11 +13,10 @@ public class Programa {
 	private DayOfWeek diaAtual;
 	
 	public Programa(){
-		//this.diaAtual = DiaDaSemana.Segunda;
 		this.diaAtual = LocalDateTime.now().getDayOfWeek();
 	}
 	
-	// Padrão de projeto strategy
+	// Padrï¿½o de projeto strategy
 	public void setState(TipoPrograma tipoPrograma) {
 		if (tipoPrograma.equals(TipoPrograma.ABCD))
 			programaState = new Abcd(this);
@@ -42,10 +42,12 @@ public class Programa {
 		this.tipoPrograma = tipoPrograma;
 		setState(tipoPrograma);
 	}
+
+	public void addUsuario(Usuario usuario){
+		programaState.addUsuario(usuario);
+	}
 	
 	public TipoPrograma getTipo() {
 		return this.tipoPrograma;
 	}
-	
-	public void init() {}
 }

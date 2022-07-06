@@ -13,7 +13,7 @@ public class Cardio extends ProgramaState{
 	}
 	
 	private void setSerieOfProgram(int numRep, int qtd) {
-		 super.makeSerie(GrupoMuscular.Inferiores, TipoExercicio.Cardiovascular, numRep, qtd);
+		 super.criarSerie(GrupoMuscular.Inferiores, TipoExercicio.Cardiovascular, numRep, qtd);
 	}
 
 }

@@ -13,6 +13,6 @@ public class Abcd extends ProgramaState{
 	}
 	
 	private void setSerieOfProgram(DayOfWeek dayOfWeek, int numRep, int qtd) {
-		 super.makeSerie(GrupoMuscular.getGrupoByDay(dayOfWeek), TipoExercicio.getTipoAbcdByDay(dayOfWeek), numRep, qtd);
+		 super.criarSerie(GrupoMuscular.getGrupoByDay(dayOfWeek), TipoExercicio.getTipoAbcdByDay(dayOfWeek), numRep, qtd);
 	}
 }
