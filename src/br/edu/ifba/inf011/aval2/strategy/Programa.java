@@ -9,21 +9,20 @@ import br.edu.ifba.inf011.aval2.observer.Usuario;
 public class Programa {
 	private TipoPrograma tipoPrograma;
 	public static ProgramaState programaState;
-	//private DiaDaSemana diaAtual;
 	private DayOfWeek diaAtual;
 	
 	public Programa(){
 		this.diaAtual = LocalDateTime.now().getDayOfWeek();
 	}
 	
-	// Padr�o de projeto strategy
-	public void setState(TipoPrograma tipoPrograma) {
+	// Padrao de projeto strategy
+	public void setStrategy(TipoPrograma tipoPrograma) {
 		if (tipoPrograma.equals(TipoPrograma.ABCD))
 			programaState = new Abcd(this);
 		else if(tipoPrograma.equals(TipoPrograma.FullWorkout))
 			programaState = new FullWorkout(this);
 		else if (tipoPrograma.equals(TipoPrograma.Cardio))
-			programaState = new Cardio(this);
+			programaState =	 new Cardio(this);
 	}
 	
 	public boolean temProximo() {
@@ -38,9 +37,11 @@ public class Programa {
         return this.diaAtual;
     }
     
+    public void init() {}
+    
     public void setTipo(TipoPrograma tipoPrograma) {
 		this.tipoPrograma = tipoPrograma;
-		setState(tipoPrograma);
+		setStrategy(tipoPrograma);
 	}
 
 	public void addUsuario(Usuario usuario){

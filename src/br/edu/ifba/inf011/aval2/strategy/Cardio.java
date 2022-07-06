@@ -5,7 +5,6 @@ import br.edu.ifba.inf011.aval2.enums.TipoExercicio;
 import br.edu.ifba.inf011.aval2.utils.Utils;
 
 public class Cardio extends ProgramaState{
-
 	public Cardio(Programa programa) {
 		super(programa);
 		this.diasOciosos.addAll(Utils.daysRestFullWorkoutOrCardio());
@@ -15,5 +14,4 @@ public class Cardio extends ProgramaState{
 	private void setSerieOfProgram(int numRep, int qtd) {
 		 super.criarSerie(GrupoMuscular.Inferiores, TipoExercicio.Cardiovascular, numRep, qtd);
 	}
-
 }

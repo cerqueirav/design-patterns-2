@@ -35,16 +35,13 @@ public abstract class ProgramaState {
 	}
 	
 	public boolean ehDiaDeDescanso() {
-		if(diasOciosos.contains(programa.getDiaAtual()))
+		if(diasOciosos.contains(programa.getDiaAtual())) {
+			if (!series.isEmpty())
+				this.proximaSerie = series.pop();
 			return true;
-		try {
-			this.proximaSerie = series.pop();
-			return true;
-		}
-		// Lista vazia de serie (pilha desempilhada por completo)
-		catch(Exception e) {
-			return false;
-		}
+		}	
+		// Não não mais nenhuma serie a ser executada (pilha completamente desempilhada)
+		return false;
 	}
 	
 	public boolean temProximo() {
@@ -71,9 +68,6 @@ public abstract class ProgramaState {
 	
 	protected void criarSerie(GrupoMuscular grupoMuscular, TipoExercicio tipoExercicio, int numRep, int qtd) {
 		Serie serie = new Serie(numRep, qtd, criarNovoExercicio(grupoMuscular, tipoExercicio));
-			
-		series.push(serie);
-		series.push(serie);
 		series.push(serie);
 	}
 	
