@@ -68,5 +68,4 @@ public class ExercicioBuilder implements ExercicioFactory{
 	public Exercicio build(String id) {
 		return new Exercicio(id, this.descricao, tipos, gruposMusculares, equipamentos);
 	}
-
 }

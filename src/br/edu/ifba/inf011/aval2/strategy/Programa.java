@@ -1,21 +1,25 @@
 package br.edu.ifba.inf011.aval2.strategy;
 
-import br.edu.ifba.inf011.aval2.enums.DiaDaSemana;
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+
 import br.edu.ifba.inf011.aval2.enums.TipoPrograma;
 
 public class Programa {
 	private TipoPrograma tipoPrograma;
 	public static ProgramaState programaState;
-	private DiaDaSemana diaDaSemana;
+	//private DiaDaSemana diaAtual;
+	private DayOfWeek diaAtual;
 	
 	public Programa(){
-		this.diaDaSemana = DiaDaSemana.Segunda;
+		//this.diaAtual = DiaDaSemana.Segunda;
+		this.diaAtual = LocalDateTime.now().getDayOfWeek();
 	}
 	
 	// Padrão de projeto strategy
 	public void setState(TipoPrograma tipoPrograma) {
 		if (tipoPrograma.equals(TipoPrograma.ABCD))
-			programaState = new ABCD(this);
+			programaState = new Abcd(this);
 		else if(tipoPrograma.equals(TipoPrograma.FullWorkout))
 			programaState = new FullWorkout(this);
 		else if (tipoPrograma.equals(TipoPrograma.Cardio))
@@ -30,8 +34,8 @@ public class Programa {
 		return programaState.proxima();
 	}
 	 
-    public DiaDaSemana getDiaDaSemana() {
-        return this.diaDaSemana;
+    public DayOfWeek getDiaAtual() {
+        return this.diaAtual;
     }
     
     public void setTipo(TipoPrograma tipoPrograma) {

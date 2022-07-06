@@ -1,22 +1,24 @@
 package br.edu.ifba.inf011.aval2.strategy;
 
-import br.edu.ifba.inf011.aval2.enums.DiaDaSemana;
+import java.time.DayOfWeek;
+
 import br.edu.ifba.inf011.aval2.enums.GrupoMuscular;
 import br.edu.ifba.inf011.aval2.enums.TipoExercicio;
+import br.edu.ifba.inf011.aval2.utils.Utils;
 
 public class FullWorkout extends ProgramaState{
 
 	public FullWorkout(Programa programa) {
 		super(programa);
-		this.diasOciosos.add(DiaDaSemana.Terca);
-		this.diasOciosos.add(DiaDaSemana.Quinta);
-		this.diasOciosos.add(DiaDaSemana.Sabado);
-		this.diasOciosos.add(DiaDaSemana.Domingo);
+		this.diasOciosos.addAll(Utils.daysRestFullWorkoutOrCardio());
+		setSerieOfProgram(25, 40);
+	}
 		
-		super.criaSeries(GrupoMuscular.Ombros, TipoExercicio.Cardiovascular);
-        super.criaSeries(GrupoMuscular.Inferiores, TipoExercicio.Mobilidade);
-        super.criaSeries(GrupoMuscular.Peito, TipoExercicio.Funcional);
-        super.criaSeries(GrupoMuscular.Biceps, TipoExercicio.Resistido);
+	private void setSerieOfProgram(int numRep, int qtd) {
+		super.makeSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.MONDAY), TipoExercicio.Cardiovascular, numRep, qtd);
+		super.makeSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.TUESDAY), TipoExercicio.Mobilidade, numRep, qtd);
+		super.makeSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.WEDNESDAY), TipoExercicio.Funcional, numRep, qtd);
+		super.makeSerie(GrupoMuscular.getGrupoByDay(DayOfWeek.THURSDAY), TipoExercicio.Resistido, numRep, qtd);
 	}
 
 }

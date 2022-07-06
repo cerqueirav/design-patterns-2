@@ -20,14 +20,13 @@ public class Aplicacao {
 	    }
 	}
 	
-	
 	private void rodarQ2() {
 	}
 	
 	private void rodarQ3() {
 		Exercicio exercicio = ExercicioBuilder.getFactory()
 				  .clear().descricao("Apoio")
-				  .withGrupoMuscular(GrupoMuscular.Peito)
+				  .withGrupoMuscular(GrupoMuscular.Peitoral)
 				  .withGrupoMuscular(GrupoMuscular.Triceps)
 				  .withTipo(TipoExercicio.Resistido).build("AP01");
 		
@@ -43,25 +42,9 @@ public class Aplicacao {
 										 .withExercicio(exercicio)
 										 .withExercicio(exercicio2).build("AP-BAR01");
 		
-		Exercicio esteira = CombinadoBuilder.getFactory().clear().descricao("Esteira")
-				 .withExercicio(combinado)
-				 .withExercicio(exercicio).build("AP-BAR03");
-		
-		
-		CombinadoBuilder.getFactory().clear().descricao("Barra-Apoio-Esteira")
-	      .withExercicio(combinado)
-	      .withExercicio(esteira).build("AP-BAR-EST-01");
-		
-		Exercicio exercicio3 = 
-				ExercicioBuilder.getFactory()
-				.clear()
-				.withExercicio(exercicio)
-				.withExercicio(exercicio2)
-				.build("EXE003");
-		
-		System.out.println("Exercicio simples: " + exercicio);
-		System.out.println("Exercicio combinado: " + exercicio2);
-		System.out.println("Exercicio combinado novo: " + exercicio3);
+		//System.out.println("Exercicio simples: " + exercicio);
+		//System.out.println("Exercicio combinado: " + exercicio2);
+		System.out.println("Exercicio combinado: " + combinado);
 	}
 	
 	private void rodarQ4() {}
@@ -69,8 +52,8 @@ public class Aplicacao {
 	public static void main(String[] args){
 		Aplicacao app = new Aplicacao();
 		//app.rodarQ1();
-		app.rodarQ2();
-		//app.rodarQ3();
+		//app.rodarQ2();
+		app.rodarQ3();
 		//app.rodarQ4();
 	}
 }
