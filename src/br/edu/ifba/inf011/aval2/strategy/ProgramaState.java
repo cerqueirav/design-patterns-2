@@ -8,12 +8,7 @@ import java.util.Stack;
 
 import br.edu.ifba.inf011.aval2.builder.ExercicioBuilder;
 import br.edu.ifba.inf011.aval2.enums.GrupoMuscular;
-import br.edu.ifba.inf011.aval2.enums.TipoEquipamento;
 import br.edu.ifba.inf011.aval2.enums.TipoExercicio;
-import br.edu.ifba.inf011.aval2.factories.AcessorioFactory;
-import br.edu.ifba.inf011.aval2.factories.EquipamentoFactory;
-import br.edu.ifba.inf011.aval2.factories.HalteresFactory;
-import br.edu.ifba.inf011.aval2.factories.MaquinasFactory;
 import br.edu.ifba.inf011.aval2.models.Acessorio;
 import br.edu.ifba.inf011.aval2.models.Equipamento;
 import br.edu.ifba.inf011.aval2.models.Exercicio;
@@ -46,6 +41,7 @@ public abstract class ProgramaState {
 			}
 			// Não não mais nenhuma serie a ser executada (pilha completamente desempilhada)
 			catch(Exception e) {
+				// chamar método de Push-Notification
 				return false;
 			}
 	}
@@ -80,7 +76,6 @@ public abstract class ProgramaState {
 			series.push(serie);
 		}
 	}
-	
 	public Exercicio criarNovoExercicio(GrupoMuscular grupoMuscular, TipoExercicio tipoExercicio) {
 		Equipamento equipamento = new Acessorio("EQP01", 20);
 		Equipamento equipamento2 = new Haltere("HAL04", 40);

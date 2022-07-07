@@ -6,6 +6,7 @@ public class Serie {
 	private int numRepeticoes;
 	private int qtde;
 	private Exercicio exercicio;
+	
     
     public Serie(int numRepeticoes, int qtde, Exercicio exercicio) {
         this.numRepeticoes = numRepeticoes;
@@ -14,6 +15,6 @@ public class Serie {
     };
     
 	public void executar() {
-		System.out.println(exercicio.getDescricao());
+		System.out.println(exercicio);
 	}	
 }

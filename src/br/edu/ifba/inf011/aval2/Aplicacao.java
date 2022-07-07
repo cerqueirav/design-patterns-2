@@ -21,6 +21,9 @@ public class Aplicacao {
 	    }
 	}
 	
+	
+	
+	
 	private void rodarQ2() {}
 	
 	private void rodarQ3() {
@@ -44,16 +47,16 @@ public class Aplicacao {
 		
 		System.out.println("Exercicio simples: " + exercicio);
 		System.out.println("Exercicio combinado: " + exercicio2);
-		System.out.println("Exercicio combinado: " + combinado);
+		System.out.println("Exercicio combinado2: " + combinado);
 	}
 	
 	private void rodarQ4() {}
 	
 	public static void main(String[] args){
 		Aplicacao app = new Aplicacao();
-		//app.rodarQ1();
+		app.rodarQ1();
 		//app.rodarQ2();
-		app.rodarQ3();
+		//app.rodarQ3();
 		//app.rodarQ4();
 	}
 }

@@ -8,7 +8,7 @@ import br.edu.ifba.inf011.aval2.observer.Usuario;
 
 public class Programa {
 	private TipoPrograma tipoPrograma;
-	public static ProgramaState programaState;
+	public ProgramaState programaState;
 	private DayOfWeek diaAtual;
 	
 	public Programa(){
@@ -38,9 +38,7 @@ public class Programa {
         return this.diaAtual;
     }
     
-    public void init() {
-    	
-    }
+    public void init() {}
     
     public void setTipo(TipoPrograma tipoPrograma) {
 		this.tipoPrograma = tipoPrograma;
