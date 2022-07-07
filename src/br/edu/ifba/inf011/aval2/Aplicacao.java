@@ -12,16 +12,16 @@ import br.edu.ifba.inf011.aval2.strategy.Serie;
 public class Aplicacao {
 	private void rodarQ1() {
 	 	Programa programa = new Programa();
-	    programa.setTipo(TipoPrograma.Cardio);
+	    programa.setTipo(TipoPrograma.ABCD);
 	    programa.init();
 	    while(programa.temProximo()){
 	        Serie serie = programa.proximo();
+	        if (serie==null) break;
 	        serie.executar();
 	    }
 	}
 	
-	private void rodarQ2() {
-	}
+	private void rodarQ2() {}
 	
 	private void rodarQ3() {
 		Exercicio exercicio = ExercicioBuilder.getFactory()
@@ -42,8 +42,8 @@ public class Aplicacao {
 										 .withExercicio(exercicio)
 										 .withExercicio(exercicio2).build("AP-BAR01");
 		
-		//System.out.println("Exercicio simples: " + exercicio);
-		//System.out.println("Exercicio combinado: " + exercicio2);
+		System.out.println("Exercicio simples: " + exercicio);
+		System.out.println("Exercicio combinado: " + exercicio2);
 		System.out.println("Exercicio combinado: " + combinado);
 	}
 	

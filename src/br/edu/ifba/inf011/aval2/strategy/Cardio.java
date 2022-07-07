@@ -8,10 +8,11 @@ public class Cardio extends ProgramaState{
 	public Cardio(Programa programa) {
 		super(programa);
 		this.diasOciosos.addAll(Utils.daysRestFullWorkoutOrCardio());
-		setSerieOfProgram(56, 55);
+		//setSerieOfProgram(56, 55);
+		super.criarSerie(GrupoMuscular.Inferiores, TipoExercicio.Cardiovascular, 12, 4);
 	}
 	
 	private void setSerieOfProgram(int numRep, int qtd) {
-		 super.criarSerie(GrupoMuscular.Inferiores, TipoExercicio.Cardiovascular, numRep, qtd);
+		 
 	}
 }

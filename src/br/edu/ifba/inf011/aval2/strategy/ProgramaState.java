@@ -26,7 +26,7 @@ public abstract class ProgramaState {
 	public Programa programa;
 	private Serie proximaSerie;
 	ArrayList<DayOfWeek> diasOciosos = new ArrayList<>();
-	public Stack<Serie> series = new Stack<>();
+	private Stack<Serie> series = new Stack<>();
 	
 	private List<Usuario> usuarios = new ArrayList<>(); 
 	
@@ -35,13 +35,19 @@ public abstract class ProgramaState {
 	}
 	
 	public boolean ehDiaDeDescanso() {
-		if(diasOciosos.contains(programa.getDiaAtual())) {
-			if (!series.isEmpty())
-				this.proximaSerie = series.pop();
-			return true;
+		if(diasOciosos.contains(programa.getDiaAtual())) { 
+			System.out.println("Hoje é um dia ocioso");
+			return false;
 		}	
-		// Não não mais nenhuma serie a ser executada (pilha completamente desempilhada)
-		return false;
+			try {
+				System.out.println("Hoje é um dia de malhar");
+				this.proximaSerie = series.pop();
+				return true;
+			}
+			// Não não mais nenhuma serie a ser executada (pilha completamente desempilhada)
+			catch(Exception e) {
+				return false;
+			}
 	}
 	
 	public boolean temProximo() {
@@ -67,8 +73,12 @@ public abstract class ProgramaState {
 	}
 	
 	protected void criarSerie(GrupoMuscular grupoMuscular, TipoExercicio tipoExercicio, int numRep, int qtd) {
-		Serie serie = new Serie(numRep, qtd, criarNovoExercicio(grupoMuscular, tipoExercicio));
-		series.push(serie);
+		if (!series.isEmpty()) {
+			Serie serie = new Serie(numRep, qtd, criarNovoExercicio(grupoMuscular, tipoExercicio));
+			series.push(serie);
+			series.push(serie);
+			series.push(serie);
+		}
 	}
 	
 	public Exercicio criarNovoExercicio(GrupoMuscular grupoMuscular, TipoExercicio tipoExercicio) {

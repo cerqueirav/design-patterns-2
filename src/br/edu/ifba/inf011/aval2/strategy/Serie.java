@@ -3,9 +3,9 @@ package br.edu.ifba.inf011.aval2.strategy;
 import br.edu.ifba.inf011.aval2.models.Exercicio;
 
 public class Serie {
-	public int numRepeticoes;
-    public int qtde;
-    public Exercicio exercicio;
+	private int numRepeticoes;
+	private int qtde;
+	private Exercicio exercicio;
     
     public Serie(int numRepeticoes, int qtde, Exercicio exercicio) {
         this.numRepeticoes = numRepeticoes;
@@ -13,7 +13,7 @@ public class Serie {
         this.exercicio = exercicio;
     };
     
-	public void executar() {}
-	
-	
+	public void executar() {
+		System.out.println(exercicio.getDescricao());
+	}	
 }
